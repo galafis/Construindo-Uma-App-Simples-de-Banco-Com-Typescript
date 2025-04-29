@@ -42,7 +42,7 @@ Este repositório faz parte de um desafio prático proposto pela **DIO (Digital 
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript
+   git clone https://github.com/seu-usuario/seu-repositorio.git
    ```
 
 2. Acesse a pasta do projeto:
@@ -69,7 +69,7 @@ Este repositório faz parte de um desafio prático proposto pela **DIO (Digital 
 
 Este projeto foi inspirado no repositório base fornecido pela DIO:
 
-https://github.com/digitalinnovationone/desafio01-ts
+[https://github.com/digitalinnovationone/desafio01-ts](https://github.com/digitalinnovationone/desafio01-ts)
 
 ## 👨‍🎓 Sobre mim
 
