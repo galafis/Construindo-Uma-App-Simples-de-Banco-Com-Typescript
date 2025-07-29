@@ -78,3 +78,22 @@ Sou estudante universitário da área de **Ciência de Dados**, e este desafio f
 ---
 
 📌 *Este projeto é didático e não utiliza banco de dados real. Todos os dados são armazenados em memória.*
+
+## 📋 Descrição
+
+Descreva aqui o conteúdo desta seção.
+
+
+## 📦 Instalação
+
+Descreva aqui o conteúdo desta seção.
+
+
+## 💻 Uso
+
+Descreva aqui o conteúdo desta seção.
+
+
+## 📄 Licença
+
+Descreva aqui o conteúdo desta seção.
