@@ -175,3 +175,32 @@ curl -X GET http://localhost:3000/statement \
 Este projeto esta sob a licenca MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+---
+
+## English
+
+### Overview
+
+Aplicacao Bancaria com Node.js + TypeScript | Banking App with Node.js + TypeScript - A project built with TypeScript, Node.js, developed by Gabriel Demetrios Lafis as part of professional portfolio and continuous learning in Data Science and Software Engineering.
+
+### Key Features
+
+This project demonstrates practical application of modern development concepts including clean code architecture, responsive design patterns, and industry-standard best practices. The implementation showcases real-world problem solving with production-ready code quality.
+
+### How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
+   ```
+2. Follow the setup instructions in the Portuguese section above.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Developed by [Gabriel Demetrios Lafis](https://github.com/galafis)
