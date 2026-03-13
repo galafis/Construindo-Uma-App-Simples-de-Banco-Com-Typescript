@@ -1,181 +1,13 @@
-# Aplicacao Bancaria com Node.js + TypeScript | Banking App with Node.js + TypeScript
+# Banking Application - Node.js + TypeScript
 
-Este repositorio faz parte de um desafio pratico proposto pela **DIO (Digital Innovation One)**, com o objetivo de desenvolver uma aplicacao bancaria utilizando Node.js e TypeScript, aplicando os padroes REST no back-end.
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6.svg?logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933.svg?logo=node.js&logoColor=white)](https://nodejs.org)
+[![Express](https://img.shields.io/badge/Express-4.x-000000.svg?logo=express&logoColor=white)](https://expressjs.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker)](Dockerfile)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker&logoColor=white)](Dockerfile)
 
-This repository is part of a hands-on challenge proposed by **DIO (Digital Innovation One)**, aimed at building a banking application using Node.js and TypeScript, applying REST standards in the back-end.
-
----
-
-## Fluxo da API | API Flow
-
-```mermaid
-flowchart TD
-    Client([Client\nInsomnia / Postman]) -->|HTTP Request| Routes
-
-    subgraph Express["Express Server (Node.js + TypeScript)"]
-        Routes["Routes\n/account\n/deposit\n/withdraw\n/statement\n/delete"] --> Controllers
-        Controllers["Controllers\nAccountController\nTransactionController"] --> Operations
-        Operations["Bank Operations\ncreatAccount\ngetStatement\ndoDeposit\ndoWithdraw\ndeleteAccount"]
-    end
-
-    Operations --> InMemory["In-Memory Store\naccounts: Account[]"]
-    InMemory -->|Account / Statement| Operations
-    Operations -->|JSON Response| Client
-
-    style Express fill:#1e3a5f,color:#fff
-    style Client fill:#2d6a4f,color:#fff
-    style InMemory fill:#5c3d2e,color:#fff
-```
-
----
-
-## Objetivos do Projeto | Project Goals
-
-**PT-BR**
-- Consolidar conhecimentos de **Node.js** e **TypeScript**
-- Compreender os fundamentos do desenvolvimento de APIs RESTful
-- Simular funcionalidades reais de um sistema bancario (criacao de conta, depositos, saques e visualizacao de extrato)
-- Aplicar boas praticas na estruturacao do codigo e organizacao de rotas
-
-**EN**
-- Strengthen knowledge of **Node.js** and **TypeScript**
-- Understand the foundations of RESTful API development
-- Simulate real banking system features (account creation, deposits, withdrawals and statement viewing)
-- Apply best practices in code structure and route organization
-
----
-
-## Funcionalidades | Features
-
-| Operacao | Metodo | Rota | Description |
-|----------|--------|------|-------------|
-| Criar conta | `POST` | `/account` | Create bank account |
-| Atualizar dados | `PUT` | `/account` | Update customer data |
-| Consultar extrato | `GET` | `/statement` | Get account statement |
-| Deposito | `POST` | `/deposit` | Make a deposit |
-| Saque | `POST` | `/withdraw` | Make a withdrawal |
-| Deletar conta | `DELETE` | `/account` | Delete account |
-
----
-
-## Tecnologias | Tech Stack
-
-- [Node.js](https://nodejs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Express](https://expressjs.com/)
-- [uuid](https://www.npmjs.com/package/uuid)
-- [Nodemon](https://www.npmjs.com/package/nodemon)
-- [Insomnia](https://insomnia.rest/) ou [Postman](https://www.postman.com/) para testes
-
----
-
-## Estrutura do Projeto | Project Structure
-
-```
-src/
- ├── index.ts              # Entry point / Ponto de entrada
- ├── routes/               # API route definitions / Definicao de rotas
- ├── models/               # Data structures / Estrutura dos dados
- └── controllers/          # Business logic / Logica de cada operacao bancaria
-```
-
----
-
-## Como Executar | Getting Started
-
-**PT-BR**
-
-1. Clone o repositorio:
-   ```bash
-   git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
-   ```
-
-2. Acesse a pasta do projeto:
-   ```bash
-   cd Construindo-Uma-App-Simples-de-Banco-Com-Typescript
-   ```
-
-3. Instale as dependencias:
-   ```bash
-   npm install
-   ```
-
-4. Inicie a aplicacao em modo de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-
-5. Use o **Insomnia** ou **Postman** para testar os endpoints da API.
-
-**EN**
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
-   ```
-
-2. Navigate to the project folder:
-   ```bash
-   cd Construindo-Uma-App-Simples-de-Banco-Com-Typescript
-   ```
-
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-4. Start the application in development mode:
-   ```bash
-   npm run dev
-   ```
-
-5. Use **Insomnia** or **Postman** to test the API endpoints.
-
----
-
-## Exemplo de Uso | Usage Example
-
-```bash
-# Create an account / Criar uma conta
-curl -X POST http://localhost:3000/account \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Gabriel Lafis", "cpf": "12345678900"}'
-
-# Make a deposit / Realizar deposito
-curl -X POST http://localhost:3000/deposit \
-  -H "Content-Type: application/json" \
-  -H "cpf: 12345678900" \
-  -d '{"amount": 500}'
-
-# Get statement / Consultar extrato
-curl -X GET http://localhost:3000/statement \
-  -H "cpf: 12345678900"
-```
-
----
-
-## Observacoes | Notes
-
-- Este projeto e didatico e nao utiliza banco de dados real. Todos os dados sao armazenados em memoria.
-- This project is educational and does not use a real database. All data is stored in memory.
-- Inspirado no repositorio base da DIO: [desafio01-ts](https://github.com/digitalinnovationone/desafio01-ts)
-
----
-
-## Sobre o Autor | About the Author
-
-**Gabriel Demetrios Lafis** — Cientista de Dados com interesse em desenvolvimento back-end moderno e APIs escaláveis.
-
-[![GitHub](https://img.shields.io/badge/GitHub-galafis-181717?style=flat&logo=github)](https://github.com/galafis)
-
----
-
-## Licenca | License
-
-Este projeto esta sob a licenca MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
+[English](#english) | [Portugues (BR)](#portugues-br)
 
 ---
 
@@ -183,24 +15,139 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ### Overview
 
-Aplicacao Bancaria com Node.js + TypeScript | Banking App with Node.js + TypeScript - A project built with TypeScript, Node.js, developed by Gabriel Demetrios Lafis as part of professional portfolio and continuous learning in Data Science and Software Engineering.
+Simple banking application built with Node.js, Express, and TypeScript. Implements RESTful API endpoints for account management, deposits, withdrawals, and statement queries. Developed as part of a DIO (Digital Innovation One) bootcamp challenge focused on back-end development with TypeScript.
+
+### Architecture
+
+```mermaid
+graph TB
+    subgraph Client["Client"]
+        A[HTTP Request]
+    end
+
+    subgraph API["Express API"]
+        B[Routes]
+        C[Middleware]
+        D[Controllers]
+    end
+
+    subgraph Data["Data Layer"]
+        E[In-Memory Store]
+        F[Customer Model]
+        G[Statement Model]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    E --> G
+
+    style Client fill:#e3f2fd
+    style API fill:#e8f5e9
+    style Data fill:#f3e5f5
+```
 
 ### Key Features
 
-This project demonstrates practical application of modern development concepts including clean code architecture, responsive design patterns, and industry-standard best practices. The implementation showcases real-world problem solving with production-ready code quality.
+- **Account Creation** -- Register new bank accounts with CPF and name validation
+- **Duplicate Prevention** -- Automatic check for existing accounts before creation
+- **Statement Management** -- Track credits and debits with timestamps and descriptions
+- **RESTful Design** -- Clean REST API endpoints following HTTP standards
+- **Type Safety** -- Full TypeScript interfaces for Customer and Statement models
+- **UUID Generation** -- Unique identifiers for each account using uuid library
 
-### How to Run
+### Industry Application
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
-   ```
-2. Follow the setup instructions in the Portuguese section above.
+This project demonstrates fundamental banking API patterns used in fintech applications, digital wallets, and payment platforms. The account management and transaction tracking concepts apply to neobank MVPs, credit union systems, and financial microservices architectures.
+
+### Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **TypeScript 5.0+** | Type-safe application logic |
+| **Node.js 20+** | Runtime environment |
+| **Express** | HTTP server framework |
+| **uuid** | Unique ID generation |
+| **Docker** | Containerized deployment |
+
+### Quick Start
+
+```bash
+git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
+cd Construindo-Uma-App-Simples-de-Banco-Com-Typescript
+npm install
+npm start
+```
+
+### Docker
+
+```bash
+docker build -t banking-app-ts .
+docker run -p 3333:3333 banking-app-ts
+```
+
+### API Endpoints
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| POST | /account | Create a new bank account |
+
+### Project Structure
+
+```
+Construindo-Uma-App-Simples-de-Banco-Com-Typescript/
+├── src/
+│   └── index.ts
+├── Dockerfile
+├── package.json
+├── tsconfig.json
+└── LICENSE
+```
 
 ### License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Author
+
+**Gabriel Demetrios Lafis**
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
 ---
 
-Developed by [Gabriel Demetrios Lafis](https://github.com/galafis)
+## Portugues (BR)
+
+### Visao Geral
+
+Aplicacao bancaria simples construida com Node.js, Express e TypeScript. Implementa endpoints de API RESTful para gerenciamento de contas, depositos, saques e consultas de extrato. Desenvolvido como parte de um desafio do bootcamp DIO (Digital Innovation One) focado em desenvolvimento back-end com TypeScript.
+
+### Principais Funcionalidades
+
+- **Criacao de Conta** -- Registro de novas contas bancarias com validacao de CPF e nome
+- **Prevencao de Duplicidade** -- Verificacao automatica de contas existentes antes da criacao
+- **Gerenciamento de Extrato** -- Rastreamento de creditos e debitos com timestamps
+- **Design RESTful** -- Endpoints de API REST limpos seguindo padroes HTTP
+- **Seguranca de Tipos** -- Interfaces TypeScript completas para modelos Customer e Statement
+- **Geracao de UUID** -- Identificadores unicos para cada conta usando biblioteca uuid
+
+### Inicio Rapido
+
+```bash
+git clone https://github.com/galafis/Construindo-Uma-App-Simples-de-Banco-Com-Typescript.git
+cd Construindo-Uma-App-Simples-de-Banco-Com-Typescript
+npm install
+npm start
+```
+
+### Licenca
+
+Este projeto esta licenciado sob a Licenca MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+### Autor
+
+**Gabriel Demetrios Lafis**
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
